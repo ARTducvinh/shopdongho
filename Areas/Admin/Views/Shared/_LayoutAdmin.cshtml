@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Public/Css/Layout.css" rel="stylesheet" />
+    <link href="~/Public/Css/all.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("head", required: false)
+</head>
+
+<body>
+    <section class="clearfix header bg-danger">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Trang Chủ</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">
+                                    <strong>Sản phẩm</strong>
+                                </a>
+                                <ul class="dropdown-menu-end" aria-labelledby="navbardropdown">
+                                    <li><a class="dropdown-item" href="@Url.Action("Index", "Product")">Danh sách sản phẩm</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Create", "Product")">Thêm sản phẩm</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Index", "Category")">Danh sách loại sản phẩm</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Create", "Category")">Thêm loại sản phẩm</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <div class="nav-link dropdown-toggle" href="#" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <strong>Bài viết</strong>
+                                </div>
+                                <ul class="dropdown-menu-end" aria-labelledby="navbardropdown">
+                                    <li><a class="dropdown-item" href="@Url.Action("Index", "Post")">Danh sách bài viết</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Create", "Post")">Thêm bài viết</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Index", "Topics")">Danh sách chủ đề bài viết</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Create", "Topics")">Thêm chủ đề bài viết</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <section class="clearfix maincontent">
+        <div class="container-fluid py-3">
+            @RenderBody()
+        </div>
+    </section>
+    <section class="clearfix foodter bg-danger">
+        <div class="container-fluid text-while text-center py-3">
+            Đặng Đức Vinh
+        </div>
+    </section>
+    @RenderSection("footer", required: false)
+</body>
+</html>

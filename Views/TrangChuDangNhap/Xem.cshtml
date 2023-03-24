@@ -1,0 +1,82 @@
+﻿@model shopdongho.Models.Product
+@{
+    ViewBag.Title = "Xem Chi Tiet";
+    Layout = "~/Views/Share/_Layout1.cshtml";
+}
+
+<div>
+    <h4>Chi Tiết Sản Phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img style="width:100px;" class="text-center" src="~/Public/Img/@Html.DisplayFor(model => model.Img)" />
+        </dd>
+        <dt>
+            Từ Khóa SEO:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metakey)
+        </dd>
+
+
+        <dt>
+            Mô tả SEO:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metadese)
+        </dd>
+
+        <dt>
+            Mô tả của sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detail)
+        </dd>
+
+        <dt>
+            Giá của sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Giá sale của sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pricesale)
+        </dd>
+        <dt>
+            Trạng thái:
+        </dt>
+
+        <dd>
+            @if (Model.Status == 1)
+            {
+                <h6>Xuất bản</h6>
+            }
+            else
+            {
+                <h6>Chưa xuất bản</h6>
+            }
+        </dd>
+
+    </dl>
+</div>

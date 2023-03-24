@@ -1,0 +1,57 @@
+﻿@model shopdongho.Models.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_Layout1.cshtml";
+}
+<h3>@ViewBag.error</h3>
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Đăng Nhập</h3>
+                <div class="d-flex justify-content-end social_icon">
+                    <span><i class="fab fa-facebook-square"></i></span>
+                    <span><i class="fab fa-google-plus-square"></i></span>
+                    <span><i class="fab fa-twitter-square"></i></span>
+                </div>
+            </div>
+
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-body">
+                    <form>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            @Html.TextBoxFor(m => m.UserName, "", new { @class = "form-control", @placeholder = "Tên Tài Khoản" })
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            @Html.TextBoxFor(m => m.Pass, "", new { @class = "form-control", @placeholder = "Mật Khẩu" })
+                        </div>
+
+                        <div class="form-group">
+                            <button tyle="submit" class="btn btn-sm btn-success">
+                                Đăng Nhập
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        Bạn Chưa Có Tài Khoản?
+                        <a href="@Url.Action("Create", "Login")">Đăng Kí</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#">Quên Mật Khẩu?</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

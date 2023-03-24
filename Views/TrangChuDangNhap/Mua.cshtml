@@ -1,0 +1,75 @@
+﻿@model shopdongho.Models.Product
+@{
+    ViewBag.Title = "Mua";
+    Layout = "~/Views/Share/_LayoutDangNhap.cshtml";
+}
+
+<div>
+    <h4>Đơn Hàng của bạn</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Người Mua:
+        </dt>
+
+        <dd>
+            @Session["Fullname"]
+        </dd>
+
+        <dt>
+            Địa Chỉ:
+        </dt>
+
+        <dd>
+            @Session["DiaChi"]
+        </dd>
+
+        <dt>
+            Số Điện Thoại:
+        </dt>
+
+        <dd>
+            @Session["Phone"]
+        </dd>
+
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img style="width:100px;" class="text-center" src="~/Public/Img/@Html.DisplayFor(model => model.Img)" />
+        </dd>
+
+        <dt>
+            Mô tả của sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detail)
+        </dd>
+
+        <dt>
+            Giá của sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Giá sale của sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pricesale)
+        </dd>
+    </dl>
+</div>
+

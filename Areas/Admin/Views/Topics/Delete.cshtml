@@ -1,0 +1,23 @@
+﻿@model shopdongho.Models.Topic
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class=" card">
+        <div clas="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-uppercase text-danger">Xác nhận loại sản phâm</strong>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="@Url.Action("Index", "Topics")" class="btn btn-success">Quay về danh sách</a>
+                    <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> |
+                </div>
+            </div>
+        </div>
+    </div>
+}

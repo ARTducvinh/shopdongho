@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopDongHoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="Orders" Type="int" Nullable="false" />
+    <Property Name="Slug" Type="nvarchar(max)" />
+    <Property Name="Metakey" Type="nvarchar(max)" />
+    <Property Name="Metadese" Type="nvarchar(max)" />
+    <Property Name="Create_by" Type="int" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Update_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Conten" Type="nvarchar(max)" />
+    <Property Name="Tile" Type="nvarchar(max)" />
+    <Property Name="Create_by" Type="int" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Update_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="TableId" Type="int" Nullable="false" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="Orders" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orderdetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Orders" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Upsate_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TopicId" Type="int" Nullable="false" />
+    <Property Name="Tile" Type="nvarchar(max)" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="Slug" Type="nvarchar(max)" />
+    <Property Name="Metakey" Type="nvarchar(max)" />
+    <Property Name="Metadese" Type="nvarchar(max)" />
+    <Property Name="Img" Type="nvarchar(max)" />
+    <Property Name="Create_by" Type="int" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Update_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CatId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Slug" Type="nvarchar(max)" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+    <Property Name="Metakey" Type="nvarchar(max)" />
+    <Property Name="Metadese" Type="nvarchar(max)" />
+    <Property Name="Img" Type="nvarchar(max)" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Pricesale" Type="float" Nullable="false" />
+    <Property Name="Create_by" Type="int" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Update_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sliders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Img" Type="nvarchar(max)" />
+    <Property Name="Orders" Type="int" Nullable="false" />
+    <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="Create_by" Type="int" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Update_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Topics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="Orders" Type="int" Nullable="false" />
+    <Property Name="Slug" Type="nvarchar(max)" />
+    <Property Name="Metakey" Type="nvarchar(max)" />
+    <Property Name="Metadese" Type="nvarchar(max)" />
+    <Property Name="Create_by" Type="int" />
+    <Property Name="Create_at" Type="datetime" />
+    <Property Name="Update_by" Type="int" />
+    <Property Name="Update_at" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Conten" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Pass" Type="nvarchar(max)" />
+    <Property Name="Roles" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ShopDongHoModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orderdetails" EntityType="Self.Orderdetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sliders" EntityType="Self.Sliders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

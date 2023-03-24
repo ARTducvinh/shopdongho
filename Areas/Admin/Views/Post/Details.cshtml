@@ -1,0 +1,74 @@
+﻿@model shopdongho.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+
+    <h4>Chi Tiết Của Bài Viết</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên bài viết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tile)
+        </dd>
+        <dt>
+            Từ Khóa bài viết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metakey)
+        </dd>
+
+        <dt>
+            Chủ đề bài viết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+
+        <dt>
+            Chi tiết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metadese)
+        </dd>
+
+        <dt>
+            Thời gian tạo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Create_at)
+        </dd>
+
+        <dt>
+            Thời gian sửa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Update_at)
+        </dd>
+
+        <dt>
+            Trạng thái:
+        </dt>
+        <dd>
+            @if (Model.Status == 1)
+            {
+                <h6>Xuất bản</h6>
+            }
+            else
+            {
+                <h6>Chưa xuất bản</h6>
+            }
+        </dd>
+    </dl>
+</div>

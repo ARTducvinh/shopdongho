@@ -1,0 +1,73 @@
+﻿@model IEnumerable<shopdongho.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class=" card">
+    <div clas="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <strong class="text-uppercase text-danger">Danh sách loại bài viết</strong>
+            </div>
+            <div class="col-md-6 text-end"  >
+                <a href="@Url.Action("Create", "Topics")" class="btn btn-success">
+                    <i class="fa-solid fa-plus"></i>Thêm</a>               
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th style="width:20px;" class="text-center">#</th>
+                    <th>Tên loại bai viet</th>
+                    <th>Từ khóa của loại bài viết</th>
+                    <th style="width:180px;" class="text-center">Chức năng</th>
+                    <th style="width:20px;" class="text-center">Id</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td class="text-center">
+                        <input name="checkId" type="checkbox" />
+                    </td>
+                    <td>@item.Name</td>
+                    <td>
+                        @item.Metakey
+                    </td>
+                    <td class="text-center">
+                        @if (item.Status == 1)
+                        {
+                            <a href="@Url.Action("Status", "Topics", new { @id = item.Id })" class="btn btn-sm btn-success">
+                                On
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Status", "Topics", new { @id = item.Id })" class="btn btn-sm btn-danger">
+                                Off
+                            </a>
+                        }
+                        <a href="@Url.Action("Edit", "Topics", new { @id = item.Id })" class="btn btn-sm btn-info">
+                            Sửa
+                        </a>
+                        <a href="@Url.Action("Details", "Topics", new { @id = item.Id })" class="btn btn-sm btn-warning" +>
+                            Chi tiết
+                        </a>
+                        <a href="@Url.Action("DelTrash", "Topics", new { @id = item.Id })" class="btn btn-sm btn-danger">
+                            Xóa
+                        </a>
+                    </td>
+                    <td class="text-center">@item.Id</td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

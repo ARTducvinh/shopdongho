@@ -1,0 +1,94 @@
+﻿@model shopdongho.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Img)
+    @Html.HiddenFor(model => model.Create_at)
+    @Html.HiddenFor(model => model.Create_by)
+    <div class=" card">
+        <div clas="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong class="text-uppercase text-danger">Sửa thông tin sản phẩm</strong>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-success">Quay về danh sách</a>
+                    <button tyle="submit" class="btn btn-sm btn-success">
+                        <i class="fa-solid fa-download"></i> Lưu
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label>Tên sản phẩm</label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Từ khóa SEO</label>
+                        @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Từ khóa SEO</label>
+                        @Html.EditorFor(model => model.Metakey, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Metakey, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả SEO</label>
+                        @Html.TextAreaFor(model => model.Metadese, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Metadese, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label>Chọn loại sản phẩm</label>
+                            @Html.DropDownListFor(model => model.CatId, (SelectList)ViewBag.ListCat, "Chọn loại sản phẩm", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CatId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Số lượng</label>
+                            @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label>Giá sản phẩm</label>
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label>Giá sale sản phẩm</label>
+                            @Html.EditorFor(model => model.Pricesale, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Pricesale, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <input type="file" name="img" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            @Html.DropDownListFor(model => model.Status, new[] {
+                            new SelectListItem { Text="Đang bản", Value="2" },
+                            new SelectListItem { Text="Chưa bán bản", Value="1" } })
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
